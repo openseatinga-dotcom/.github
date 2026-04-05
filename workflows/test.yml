@@ -1,1 +1,8 @@
-
+name: Test Workflow
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Afficher un message
+        run: echo "Le dossier .github/workflows fonctionne parfaitement !"

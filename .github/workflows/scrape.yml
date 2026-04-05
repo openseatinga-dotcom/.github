@@ -1,1 +1,21 @@
+name: Scraper les offres d'emploi Gabon
 
+on:
+  schedule:
+    - cron: '0 8 * * *'   # tous les jours à 8h UTC
+  workflow_dispatch:       # déclenchement manuel depuis l'onglet Actions
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install supabase-py requests beautifulsoup4
+      - name: Lancer le script Python
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: python scraper.py

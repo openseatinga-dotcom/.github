@@ -1,0 +1,14 @@
+name: Test Open Seat
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Message de bienvenue
+        run: echo "🎉 Le workflow Open Seat In Gabon fonctionne correctement !"
+      
+      - name: Afficher la date
+        run: echo "📅 Exécuté le $(date)"
+      
+      - name: Vérification finale
+        run: echo "✅ Dossier .github/workflows est bien configuré"
